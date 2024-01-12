@@ -14,6 +14,8 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
+
+
         public IDataResult<List<Category>> GetAll()
         {
             //İş kodları

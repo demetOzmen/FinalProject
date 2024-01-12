@@ -1,7 +1,4 @@
 ﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Autofac.Extras.DynamicProxy;
 using Business.Abstract;
 using Business.Concrete;
@@ -10,7 +7,6 @@ using Core.Utilities.Interceptors;
 //using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
-using System.IdentityModel.Tokens.Jwt;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -18,7 +14,7 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<ProductManager>().As<IProductService>();
+            builder.RegisterType<ProductManager>().As<IProductService>().SingleInstance();
             builder.RegisterType<EfProductDal>().As<IProductDal>();
 
             builder.RegisterType<CategoryManager>().As<ICategoryService>();

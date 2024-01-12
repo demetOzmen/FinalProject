@@ -1,13 +1,9 @@
-﻿using Business.Concrete;
-using DataAccess.Concrete.EntityFramework;
-using DataAccess.Concrete.InMemory;
-
-public class Program
+﻿public class Program
 {
     public static void Main(string[] args)
     {
-        ProductTest();
-       //CategoryTest();
+        // ProductTest();
+        //CategoryTest();
     }
 
     private static void CategoryTest()
@@ -19,19 +15,19 @@ public class Program
         //}
     }
 
-    private static void ProductTest()
-    {
-        ProductManager productManager = new ProductManager(new EfProductDal());
-        var result = productManager.GetProductDetails();
+    //private static void ProductTest()
+    //{
+    //    ProductManager productManager = new ProductManager(new EfProductDal(), new CategoryManager(EfCategoryDal));
+    //    var result = productManager.GetProductDetails();
 
-        if (result.Success==true)
-        foreach (var product in result.Data)
-        {
-            Console.WriteLine(product.ProductName + "/" + product.CategoryName);
-        }
-        else
-        {
-            Console.WriteLine(result.Message);
-        }
-    }
+    //    if (result.Success==true)
+    //    foreach (var product in result.Data)
+    //    {
+    //        Console.WriteLine(product.ProductName + "/" + product.CategoryName);
+    //    }
+    //    else
+    //    {
+    //        Console.WriteLine(result.Message);
+    //    }
+    //}
 }
